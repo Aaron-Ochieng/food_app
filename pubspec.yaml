@@ -28,10 +28,13 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  animated_icon_button: ^1.0.2
   cupertino_icons: ^1.0.2
   fluentui_system_icons: ^1.1.198
   flutter:
     sdk: flutter
+  flutter_bloc: ^8.1.2
+  flutter_screenutil: ^5.7.0
   get: ^4.6.5
   sizer: ^2.0.15
 

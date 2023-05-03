@@ -15,6 +15,15 @@ class CardWidget extends StatelessWidget {
         var recommended = recommendedFood[index];
         return GestureDetector(
           onTap: () {
+            // Alternatively
+            //
+            // Navigator.push(
+            //   context,
+
+            //   MaterialPageRoute(
+            //     builder: (context) => DetailsScreen(id=id),
+            //   ),
+            // );
             Get.to(() => DetailsScreen(), arguments: [
               {"id": index}
             ]);
