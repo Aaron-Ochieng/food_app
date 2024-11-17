@@ -3,10 +3,10 @@ name: Build Flutter APK
 on:
   push:
     branches:
-      - master # Replace with the branch you want to trigger the workflow on
+      - master # Adjust as needed
   pull_request:
     branches:
-      - master # Trigger the workflow on PRs to the main branch
+      - master
 
 jobs:
   build:
@@ -14,29 +14,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Step 1: Checkout the repository
     - name: Checkout Code
       uses: actions/checkout@v3
 
-    # Step 2: Set up Flutter
     - name: Set up Flutter
       uses: subosito/flutter-action@v2
       with:
         flutter-version: stable
+        channel: stable
 
-    # Step 3: Install dependencies
-    - name: Install Dependencies
+    - name: Install Flutter Dependencies
+      run: flutter precache --android
+
+    - name: Install Project Dependencies
       run: flutter pub get
 
-    # Step 4: Run Flutter tests (optional but recommended)
     - name: Run Flutter Tests
       run: flutter test
 
-    # Step 5: Build APK
     - name: Build APK
       run: flutter build apk --release
 
-    # Step 6: Upload APK as an artifact
     - name: Upload APK
       uses: actions/upload-artifact@v3
       with:
